@@ -1,0 +1,23 @@
+// 变量声明（define variable）
+$height-color : #42c3ef;
+$highlight-color: #f90;
+$highlight-border: 1px soild $highlight-color;
+$nav-color: #f90;
+$side : left;
+// 变量的引用
+div{
+  color: $height_color;
+  width: auto;
+}
+.select{
+  border: $highlight-border;
+}
+nav{
+  $width:100px; // 当变量定义在css 规则块内,那么该变量只能在该规则块内使用
+  width:$width;
+  color: $nav-color;
+}
+.rounded{
+  border-#{$side}-radius:5px;
+  color: $height-color;
+}

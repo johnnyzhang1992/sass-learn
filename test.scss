@@ -21,3 +21,17 @@ nav{
   border-#{$side}-radius:5px;
   color: $height-color;
 }
+
+//#content article h1 { color: #333 }
+//#content article p { margin-bottom: 1.4em }
+//#content aside { background-color: #EEE }
+
+// Ç¶Ì×css
+#content {
+  background-color: #f5f5f5;
+  article {
+    h1 { color: #333 }
+    p { margin-bottom: 1.4em }
+  }
+  aside { background-color: #EEE }
+}

@@ -145,15 +145,104 @@ body {
   color: #333; // 这种注释内容不会出现在生成的css文件中
   padding: 0; /* 这种注释内容会出现在生成的css文件中 */
 }
+// 混合器
 
+@mixin border-radius {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
 
+.notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  @include border-radius;
+}
 
+// 编译后
 
+.notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* 混合器中的CSS规则 */
+@mixin no-bullets {
+  list-style: none;
+  li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+    &:hover{color:red};
+  }
+}
+ul.plain {
+  color: #444;
+  @include no-bullets;
+}
+// 编译后
+ul.plain {
+  color: #444;
+  list-style: none;
+}
+ul.plain li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+}
+ul.plain li:hover {
+  color: red;
+}
+/*  给混合器传参 */
 
+@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+a {
+  @include link-colors(blue, red, green);
+}
 
+// 编译后
+//a {  color: blue;  }
+//a:hover {  color: red;  }
+//a:visited {  color: green;  }
 
+// 也可以这样传参
+li a {
+  @include link-colors(
+          $normal: blue,
+          $visited: green,
+          $hover: red
+  );
+}
+// 编译后
+//li a {  color: blue; }
+//li a:hover {  color: red; }
+//li a:visited {  color: green; }
 
+//默认参数值
+@mixin link-colors(
+  $normal,
+  $hover: $normal,
+  $visited: $normal
+)
+{
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
 
+.link a{
+  @include link-colors(red);
+}
+// 编译后
+.link a {  color: red; }
+.link a:hover {  color: red; }
+.link a:visited {  color: red; }
 
 
 

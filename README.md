@@ -81,3 +81,97 @@ body {
 你已经掌握了sass的静默注释，了解了保持sass条理性和可读性的最基本的三个方法：
 嵌套、导入和注释。现在，我们要进一步学习新特性，这样我们不但能保持条理性还能写出更好的样式。
 首先要介绍的内容是：使用混合器抽象你的相关样式
+
+## 5. 混合器;
+混合器使用@mixin标识符定义。看上去很像其他的CSS @标识符，比如说@media或者@font-face。这个标识符给一大段样式赋予一个名字，这样你就可以轻易地通过引用这个名字重用这段样式。下边的这段sass代码，定义了一个非常简单的混合器，目的是添加跨浏览器的圆角边框。
+<pre>
+@mixin rounded-corners {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+</pre>
+然后就可以在你的样式表中通过@include来使用这个混合器，放在你希望的任何地方。@include调用会把混合器中的所有样式提取出来放在@include被调用的地方。如果像下边这样写：
+<pre>
+notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  @include rounded-corners;
+}
+</pre>
+//sass最终生成：
+<pre>
+.notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+</pre>
+
+### 5-1. 何时使用混合器;
+判断一组属性是否应该组合成一个混合器，一条经验法则就是你能否为这个混合器想出一个好的名字。
+如果你能找到一个很好的短名字来描述这些属性修饰的样式，比如<code>rounded-corners</code>,<code>fancy-font</code>或者
+<code>no-bullets</code>，那么往往能够构造一个合适的混合器。如果你找不到，这时候构造一个混合器可能并不合适。
+
+### 5-2. 混合器中的CSS规则;
+
+混合器中不仅可以包含属性，也可以包含css规则，包含选择器和选择器中的属性。
+
+混合器中的规则甚至可以使用sass的父选择器标识符&。使用起来跟不用混合器时一样，
+sass解开嵌套规则时，用父规则中的选择器替代&
+
+### 5-3. 给混合器传参;
+混合器并不一定总得生成相同的样式。可以通过在@include混合器时给混合器传参，来定制混合器生成的精确样式。当@include混合器时，参数其实就是可以赋值给css属性值的变量。如果你写过JavaScript，这种方式跟JavaScript的function很像：
+<pre>
+@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+</pre>
+当混合器被@include时，你可以把它当作一个css函数来传参。如果你像下边这样写：
+<pre>
+a {
+  @include link-colors(blue, red, green);
+}
+</pre>
+//Sass最终生成的是：
+<pre>
+a { color: blue; }
+a:hover { color: red; }
+a:visited { color: green; }
+</pre>
+sass允许通过语法<code>$name: value</code>的形式指定每个参数的值。这种形式的传参，参数顺序就不必再在乎了，只需要保证没有漏掉参数即可：
+<pre>
+a {
+    @include link-colors(
+      $normal: blue,
+      $visited: green,
+      $hover: red
+  );
+}
+</pre>
+
+### 5-4. 默认参数值;
+为了在@include混合器时不必传入所有的参数，我们可以给参数指定一个默认值。参数默认值使用$name: default-value的声明形式，默认值可以是任何有效的css属性值，甚至是其他参数的引用，如下代码：
+<pre>
+@mixin link-colors(
+    $normal,
+    $hover: $normal,
+    $visited: $normal
+  )
+{
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+</pre>
+如果像下边这样调用：@include link-colors(red) $hover和$visited也会被自动赋值为red。
+编译后：
+<pre>
+.link a {  color: red; }
+.link a:hover {  color: red; }
+.link a:visited {  color: red; }
+</pre>

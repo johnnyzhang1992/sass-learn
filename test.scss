@@ -125,8 +125,26 @@ nav {
 // 编译后
 //nav {  border: 1px solid #ccc;  border-left: 0px;  border-right: 0px; }
 
+// 默认变量值
+$fancybox-width: 400px !default; //默认变量值
+.fancybox {
+  width: $fancybox-width;
+}
 
+//嵌套导入
 
+.blue-theme {
+  @import "blue-theme";
+}
+// 编译后
+//.blue-theme aside {  background: blue;  color: #333; }
+
+// 静默注释
+
+body {
+  color: #333; // 这种注释内容不会出现在生成的css文件中
+  padding: 0; /* 这种注释内容会出现在生成的css文件中 */
+}
 
 
 

@@ -244,8 +244,25 @@ li a {
 .link a:hover {  color: red; }
 .link a:visited {  color: red; }
 
+// 继承的高级用法
+
+.link{
+  color: #333;
+  &:hover{color: #43c37b};
+  &:visited{color: red}
+}
+.disabled{
+  color: gray;
+  @extend .link;
+}
 
 
+.foo .bar {
+  font-size: 16px;
+  @extend .baz;
+}
+/* .bip .baz { color: #000; } */
+.bip .baz { color: #000; }
 
 
 

@@ -1,7 +1,27 @@
-# sass-learn
+# 安装 sass
 
-sass练习
+mac 下 `gem install sass`
 
+如果要在命令行中运行 Sass ,只要输入
+
+```sass input.scss output.css```
+
+你还可以命令 Sass 监视文件的改动并更新 CSS ：
+
+```sass --watch input.scss:output.css```
+
+如果你的目录里有很多 Sass 文件，你还可以命令 Sass 监视整个目录：
+
+```sass --watch app/sass:public/stylesheets```
+
+使用 `sass --help` 可以列出完整的帮助文档。
+
+## VSCode
+
+可以安装 scss-to-css 插件
+
+## sass练习
+---
 ## 1.使用变量
 
 ### 1-1. 变量声明
@@ -23,7 +43,7 @@ sass练习
 > 一个给定的规则块，既可以像普通的CSS那样包含属性，又可以嵌套其他规则块。
 >容器元素的样式规则会被单独抽离出来，而嵌套元素的样式规则会像容器元素没有包含任何属性时那样被抽离出来
 
-### 2-1. 父选择器的标识符&;
+### 2-1. 父选择器的标识符&
 
 > 一般情况下，sass在解开一个嵌套规则时就会把父选择器（#content）通过一个空格连接到子选择器的前边（article和aside）形成（#content article和#content aside）。这种在CSS里边被称为后代选择器，因为它选择ID为content的元素内所有命中选择器article和aside的元素。但在有些情况下你却不会希望sass使用这种后代选择器的方式生成这种连接。
 
@@ -42,9 +62,9 @@ sass练习
 
 ### 3-1. 使用SASS部分文件
 
-> sass局部文件的文件名以下划线开头。这样，sass就不会在编译时单独编译这个文件输出css，而只把这个文件用作导入。当你@import一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线。举例来说，你想导入themes/_night-sky.scss这个局部文件里的变量，你只需在样式表中写<code>@import "themes/night-sky"</code>;
+> sass局部文件的文件名以下划线开头。这样，sass就不会在编译时单独编译这个文件输出css，而只把这个文件用作导入。当你@import一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线。举例来说，你想导入themes/_night-sky.scss这个局部文件里的变量，你只需在样式表中写<code> @import "themes/night-sky"</code>;
 
-### 3-2. 默认变量值;
+### 3-2. 默认变量值
 
 > <code>!default</code>用于变量，含义是：如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值。
 

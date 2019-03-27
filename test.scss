@@ -1,4 +1,7 @@
 // 变量声明（define variable）
+// 引入其它文件定义的变量
+@import "./var";
+
 $height-color : #42c3ef;
 $highlight-color: #f90;
 $highlight-border: 1px soild $highlight-color;
@@ -8,6 +11,17 @@ $side : left;
 div{
   color: $height_color;
   width: auto;
+  &>p{
+	  color: $red;
+	  line-height: 20x;
+  }
+  a{
+	  color: $green;
+	  text-decoration: none;
+	  &:hover{
+		  color: #000;
+	  }
+  }
 }
 .select{
   border: $highlight-border;
@@ -18,7 +32,7 @@ nav{
   color: $nav-color;
 }
 .rounded{
-  border-#{$side}-radius:5px;
+  border-top-#{$side}-radius:5px;
   color: $height-color;
 }
 
@@ -344,7 +358,13 @@ body {
     }
   }
 }
-
+@keyframes wifianimation
+{
+  0% { opacity: 0.4 }
+  5% { opactiy: 1 }
+  6% { opactiy: 0.1 }
+  100% { opactiy: 0.1; }
+}
 
 @-o-keyframes wifianimation
 {
@@ -367,19 +387,3 @@ body {
   6% { opactiy: 0.1 }
   100% { opactiy: 0.1; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

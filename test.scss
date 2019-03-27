@@ -1,10 +1,10 @@
-// ±äÁ¿ÉùÃ÷£¨define variable£©
+// å˜é‡å£°æ˜ï¼ˆdefine variableï¼‰
 $height-color : #42c3ef;
 $highlight-color: #f90;
 $highlight-border: 1px soild $highlight-color;
 $nav-color: #f90;
 $side : left;
-// ±äÁ¿µÄÒıÓÃ
+// å˜é‡çš„å¼•ç”¨
 div{
   color: $height_color;
   width: auto;
@@ -13,7 +13,7 @@ div{
   border: $highlight-border;
 }
 nav{
-  $width:100px; // µ±±äÁ¿¶¨ÒåÔÚcss ¹æÔò¿éÄÚ,ÄÇÃ´¸Ã±äÁ¿Ö»ÄÜÔÚ¸Ã¹æÔò¿éÄÚÊ¹ÓÃ
+  $width:100px; // å½“å˜é‡å®šä¹‰åœ¨css è§„åˆ™å—å†…,é‚£ä¹ˆè¯¥å˜é‡åªèƒ½åœ¨è¯¥è§„åˆ™å—å†…ä½¿ç”¨
   width:$width;
   color: $nav-color;
 }
@@ -22,7 +22,7 @@ nav{
   color: $height-color;
 }
 
-// Ç¶Ì×css
+// åµŒå¥—css
 #content {
   background-color: #f5f5f5;
   article {
@@ -31,33 +31,33 @@ nav{
   }
   aside { background-color: #EEE }
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 //#content {  background-color: #f5f5f5; }
 //#content article h1 {  color: #333; }
 //#content article p {  margin-bottom: 1.4em; }
 //#content aside {  background-color: #EEE; }
 
-// ¸¸Ñ¡ÔñÆ÷µÄ±êÖ¾·û &
+// çˆ¶é€‰æ‹©å™¨çš„æ ‡å¿—ç¬¦ &
  .article a{
    color: blue;
    :hover{color: blue}
    &:hover{color: red}
  }
- // ±àÒëºó
+ // ç¼–è¯‘å
 .article a {  color: blue; }
-.article a :hover {  color: blue; } //articleÔªËØÄÚÁ´½ÓµÄËùÓĞ×ÓÔªËØÔÚ±»hoverÊ±¶¼»á±ä³ÉºìÉ«
-.article a:hover {  color: red; } //articleÔªËØÄÚµÄÁ´½ÓÔÚ±»hoverÊ±¶¼»á±ä³ÉºìÉ«
+.article a :hover {  color: blue; } //articleå…ƒç´ å†…é“¾æ¥çš„æ‰€æœ‰å­å…ƒç´ åœ¨è¢«hoveræ—¶éƒ½ä¼šå˜æˆçº¢è‰²
+.article a:hover {  color: red; } //articleå…ƒç´ å†…çš„é“¾æ¥åœ¨è¢«hoveræ—¶éƒ½ä¼šå˜æˆçº¢è‰²
 
 #content aside {
   color: red;
   opacity: 0.8;
   body.ie & { color: green }
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 #content aside {  color: red; }
 body.ie #content aside {  color: green; }
 
-// Èº×éÑ¡ÔñÆ÷µÄÇ¶Ì×
+// ç¾¤ç»„é€‰æ‹©å™¨çš„åµŒå¥—
 
 .button, button {
   margin: 0;
@@ -68,20 +68,20 @@ h1,h2,h3{
 .container {
   h1, h2, h3 {margin-bottom: .8em}
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 .container h1, .container h2, .container h3 {  margin-bottom: .8em; }
 
 nav, aside {
   a {color: blue}
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 nav a, aside a {  color: blue; }
 
-// ×Ó×éºÏÑ¡ÔñÆ÷ºÍÍ¬²ã×éºÏÑ¡ÔñÆ÷£º>¡¢+ºÍ~
-article section { margin: 5px } //article ÏÂµÄËùÓĞsection ÔªËØ
-article > section { border: 1px solid #ccc } // articleÏÂ½ô¸ú×ÅµÄ×ÓÔªËØÖĞÃüÖĞsectionÑ¡ÔñÆ÷µÄÔªËØ
-header + p { font-size: 1.1em } //Í¬²ãÏàÁÚ×éºÏÑ¡ÔñÆ÷+Ñ¡ÔñheaderÔªËØºó½ô¸úµÄpÔªËØ
-article ~ article { border-top: 1px dashed #ccc } //  Í¬²ãÈ«Ìå×éºÏÑ¡ÔñÆ÷~£¬Ñ¡ÔñËùÓĞ¸úÔÚarticleºóµÄÍ¬²ãarticleÔªËØ
+// å­ç»„åˆé€‰æ‹©å™¨å’ŒåŒå±‚ç»„åˆé€‰æ‹©å™¨ï¼š>ã€+å’Œ~
+article section { margin: 5px } //article ä¸‹çš„æ‰€æœ‰section å…ƒç´ 
+article > section { border: 1px solid #ccc } // articleä¸‹ç´§è·Ÿç€çš„å­å…ƒç´ ä¸­å‘½ä¸­sectioné€‰æ‹©å™¨çš„å…ƒç´ 
+header + p { font-size: 1.1em } //åŒå±‚ç›¸é‚»ç»„åˆé€‰æ‹©å™¨+é€‰æ‹©headerå…ƒç´ åç´§è·Ÿçš„på…ƒç´ 
+article ~ article { border-top: 1px dashed #ccc } //  åŒå±‚å…¨ä½“ç»„åˆé€‰æ‹©å™¨~ï¼Œé€‰æ‹©æ‰€æœ‰è·Ÿåœ¨articleåçš„åŒå±‚articleå…ƒç´ 
 
 article {
   ~ article { border-top: 1px dashed #ccc }
@@ -93,7 +93,7 @@ article {
   nav + & { margin-top: 0 }
 }
 
-// ±àÒëºó
+// ç¼–è¯‘å
 //article section {  margin: 5px; }
 //article > section {  border: 1px solid #ccc; }
 //header + p {  font-size: 1.1em; }
@@ -105,7 +105,7 @@ article {
 //article dl > dd {  color: #555; }
 //nav + article {  margin-top: 0; }
 
-// 2-4. Ç¶Ì×ÊôĞÔ;
+// 2-4. åµŒå¥—å±æ€§;
 nav {
   border: {
     style: solid;
@@ -113,7 +113,7 @@ nav {
     color: #ccc;
   }
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 //nav {  border-style: solid;  border-width: 1px;  border-color: #ccc; }
 
 nav {
@@ -122,30 +122,30 @@ nav {
     right: 0px;
   }
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 //nav {  border: 1px solid #ccc;  border-left: 0px;  border-right: 0px; }
 
-// Ä¬ÈÏ±äÁ¿Öµ
-$fancybox-width: 400px !default; //Ä¬ÈÏ±äÁ¿Öµ
+// é»˜è®¤å˜é‡å€¼
+$fancybox-width: 400px !default; //é»˜è®¤å˜é‡å€¼
 .fancybox {
   width: $fancybox-width;
 }
 
-//Ç¶Ì×µ¼Èë
+//åµŒå¥—å¯¼å…¥
 
 .blue-theme {
   @import "blue-theme";
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 //.blue-theme aside {  background: blue;  color: #333; }
 
-// ¾²Ä¬×¢ÊÍ
+// é™é»˜æ³¨é‡Š
 
 body {
-  color: #333; // ÕâÖÖ×¢ÊÍÄÚÈİ²»»á³öÏÖÔÚÉú³ÉµÄcssÎÄ¼şÖĞ
-  padding: 0; /* ÕâÖÖ×¢ÊÍÄÚÈİ»á³öÏÖÔÚÉú³ÉµÄcssÎÄ¼şÖĞ */
+  color: #333; // è¿™ç§æ³¨é‡Šå†…å®¹ä¸ä¼šå‡ºç°åœ¨ç”Ÿæˆçš„cssæ–‡ä»¶ä¸­
+  padding: 0; /* è¿™ç§æ³¨é‡Šå†…å®¹ä¼šå‡ºç°åœ¨ç”Ÿæˆçš„cssæ–‡ä»¶ä¸­ */
 }
-// »ìºÏÆ÷
+// æ··åˆå™¨
 
 @mixin border-radius {
   -moz-border-radius: 5px;
@@ -159,7 +159,7 @@ body {
   @include border-radius;
 }
 
-// ±àÒëºó
+// ç¼–è¯‘å
 
 .notice {
   background-color: green;
@@ -168,7 +168,7 @@ body {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* »ìºÏÆ÷ÖĞµÄCSS¹æÔò */
+/* æ··åˆå™¨ä¸­çš„CSSè§„åˆ™ */
 @mixin no-bullets {
   list-style: none;
   li {
@@ -182,7 +182,7 @@ ul.plain {
   color: #444;
   @include no-bullets;
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 ul.plain {
   color: #444;
   list-style: none;
@@ -195,7 +195,7 @@ ul.plain li {
 ul.plain li:hover {
   color: red;
 }
-/*  ¸ø»ìºÏÆ÷´«²Î */
+/*  ç»™æ··åˆå™¨ä¼ å‚ */
 
 @mixin link-colors($normal, $hover, $visited) {
   color: $normal;
@@ -206,12 +206,12 @@ a {
   @include link-colors(blue, red, green);
 }
 
-// ±àÒëºó
+// ç¼–è¯‘å
 //a {  color: blue;  }
 //a:hover {  color: red;  }
 //a:visited {  color: green;  }
 
-// Ò²¿ÉÒÔÕâÑù´«²Î
+// ä¹Ÿå¯ä»¥è¿™æ ·ä¼ å‚
 li a {
   @include link-colors(
           $normal: blue,
@@ -219,12 +219,12 @@ li a {
           $hover: red
   );
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 //li a {  color: blue; }
 //li a:hover {  color: red; }
 //li a:visited {  color: green; }
 
-//Ä¬ÈÏ²ÎÊıÖµ
+//é»˜è®¤å‚æ•°å€¼
 @mixin link-colors(
   $normal,
   $hover: $normal,
@@ -239,12 +239,12 @@ li a {
 .link a{
   @include link-colors(red);
 }
-// ±àÒëºó
+// ç¼–è¯‘å
 .link a {  color: red; }
 .link a:hover {  color: red; }
 .link a:visited {  color: red; }
 
-// ¼Ì³ĞµÄ¸ß¼¶ÓÃ·¨
+// ç»§æ‰¿çš„é«˜çº§ç”¨æ³•
 
 .link{
   color: #333;
